@@ -2,4 +2,7 @@ import logging
 
 def test():
     logger = logging.getLogger(__name__)
-    logger.info('呼び出したよ！')  # TODO: 240420 jupyter-notebook から呼び出した場合に、適切に処理できるようにする？
+    logger.debug('sub_m debug')
+    logger.info('sub_m info')
+    logger.warning('sub_m warning')
+    logger.error('sub_m error')
