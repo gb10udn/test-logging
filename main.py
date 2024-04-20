@@ -1,5 +1,6 @@
 import logging
 import sub_m
+import sub_p
 
 
 def set_logging():  # INFO: 240420 jupyter-notebook から実行する場合等では、この設定処理を別で呼び出して実行する。
@@ -12,9 +13,11 @@ def set_logging():  # INFO: 240420 jupyter-notebook から実行する場合等�
     # TODO: 240420 ERROR の場合はメール飛ばす処理を記述する。
 
     logging.basicConfig(
+        format='%(asctime)s\t%(levelname)s\t%(name)s\t%(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
         handlers=[stream_handler, file_handler],  # INFO: 240420 handlers で設定すると複数のハンドラを設定できる。
         level=logging.DEBUG,                      # INFO: 240420 全体の設定。個別設定の handeler よりも下げる。(Ex. 全体設定が WARNING であれば、個別設定で DEBUG としても表示されない。)
-    )  
+    )
 
 
 if __name__ == '__main__':
@@ -27,3 +30,4 @@ if __name__ == '__main__':
     logger.error('main error')
 
     sub_m.test()
+    sub_p.hoge.test()
